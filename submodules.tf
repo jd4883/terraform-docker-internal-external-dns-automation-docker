@@ -20,12 +20,12 @@ module "internal-dns" {
   count      = var.internal_dns ? 1 : 0
   domain     = var.domain
   private_ip = var.private_ip
-  records    = distinct(local.cnames)
+  records    = local.cnames
   source     = "jd4883/dns-bind9/hashicorp"
 }
 
 module "oauth2" {
-  cnames                = var.cnames
+  cnames                = local.cnames
   count                 = var.okta_oauth ? 1 : 0
   customResponseHeaders = var.customResponseHeaders
   domain                = var.domain

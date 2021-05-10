@@ -9,7 +9,7 @@ variable "STSSeconds" { type = number }
 variable "upstream_url" { type = string }
 variable "emails" { type = list(string) }
 variable "networks" { type = list(string) }
-variable "envars" {}
+variable "envars" { type = list(string) }
 
 variable "okta_oauth" {
   type    = bool

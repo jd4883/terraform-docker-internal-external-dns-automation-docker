@@ -24,7 +24,7 @@ module "ns1" {
   providers     = { pihole = pihole.ns1 }
   parent_domain = var.domain
   a_records     = {}
-  cnames        = local.cnames
+  cnames        = { for i in formatlist("%s.${var.domain}", local.cnames) : i => var.domain }
 }
 
 module "ns2" {
@@ -33,6 +33,6 @@ module "ns2" {
   providers     = { pihole = pihole.ns2 }
   parent_domain = var.domain
   a_records     = {}
-  cnames        = local.cnames
+  cnames        = { for i in formatlist("%s.${var.domain}", local.cnames) : i => var.domain }
   depends_on    = [module.ns1]
 }

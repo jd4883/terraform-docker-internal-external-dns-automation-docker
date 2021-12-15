@@ -1,6 +1,12 @@
 terraform {
   required_providers {
-    dns          = { source = "hashicorp/dns" }
     digitalocean = { source = "digitalocean/digitalocean" }
+    pihole = {
+      source = "ryanwholey/pihole"
+      configuration_aliases = [
+        pihole.ns1,
+        pihole.ns2,
+      ]
+    }
   }
 }

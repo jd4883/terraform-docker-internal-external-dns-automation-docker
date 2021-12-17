@@ -1,5 +1,6 @@
 variable "customResponseHeaders" { type = string }
 variable "domain" { type = string }
+variable "local_domain" { type = string }
 variable "labels" {}
 variable "logo_url" { type = string }
 variable "name" { type = string }
